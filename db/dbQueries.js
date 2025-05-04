@@ -66,7 +66,7 @@ export async function getAllMatches() {
 
 export async function getEventsByMatchId(matchId) {
     const [rows] = await connection.execute(
-        'SELECT * FROM event WHERE id_match = ?',
+        'SELECT * FROM events WHERE id_match = ?',
         [matchId]
     );
     return rows;

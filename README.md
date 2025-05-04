@@ -85,7 +85,7 @@ sudo systemctl start mysql
 ```    
 Then execute the **create_script.sql** to create tables:
 ```bash
-mysql -u root -p < create_script.sql
+sudo mysql -u root -p < create_script.sql
 ```
 
 ### 5. 🚀 Run the Server
