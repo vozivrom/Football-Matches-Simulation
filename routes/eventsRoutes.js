@@ -13,7 +13,7 @@ router.get('/match/:id', async (req, res) => {
 });
 
 // GET Goals in a match
-router.get('/match/goals/:id', async (req, res) => {
+router.get('/match/:id/goals', async (req, res) => {
     const events = await dbQueries.getGoalsByMatchId(req.params.id);
     res.json(events);
 });

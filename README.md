@@ -48,7 +48,7 @@ API supports CRUD operations for all entities and provides endpoint to simulate 
 | Method | Endpoint                  | Description                             |
 |--------|---------------------------|-----------------------------------------|
 | GET    | `/events/match/:id`       | Get all events for a specific match     |
-| GET    | `/events/match/goals/:id` | Get goals for a specific match          |
+| GET    | `/events/match/:id/goals` | Get goals for a specific match          |
 | POST   | `/events/match/:id`       | Create a new event for a specific match |
 | PUT    | `/events/:id`             | Update an event by ID                   |
 | DELETE | `/events/:id`             | Delete an event by ID                   |
