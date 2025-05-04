@@ -1,5 +1,13 @@
+DROP DATABASE IF EXISTS football_db;
+DROP USER IF EXISTS 'appuser'@'localhost';
+
+
 CREATE DATABASE football_db;
 USE football_db;
+
+CREATE USER 'appuser'@'localhost' IDENTIFIED BY 'userpass';
+GRANT ALL PRIVILEGES ON football_db.* TO 'appuser'@'localhost';
+FLUSH PRIVILEGES;
 
 DROP TABLE IF EXISTS events;
 DROP TABLE IF EXISTS matches;
@@ -22,7 +30,6 @@ CREATE TABLE IF NOT EXISTS matches
     id_home_team INT         NOT NULL,
     id_away_team INT         NOT NULL,
     date         DATETIME    NOT NULL,
-    referee      VARCHAR(50),
     status       ENUM ('Finished', 'Cancelled', 'Not Started', 'Postponed', 'Is Being Played') DEFAULT ('Not Started'),
     country      VARCHAR(50) NOT NULL,
     city         VARCHAR(50) NOT NULL,
@@ -33,12 +40,12 @@ CREATE TABLE IF NOT EXISTS matches
 
 CREATE TABLE IF NOT EXISTS players
 (
-    id_player   INT AUTO_INCREMENT PRIMARY KEY,
-    first_name  VARCHAR(50) NOT NULL,
-    second_name VARCHAR(50) NOT NULL,
-    age         INT         NOT NULL,
-    country     VARCHAR(50) NOT NULL,
-    id_team     INT         NOT NULL,
+    id_player INT AUTO_INCREMENT PRIMARY KEY,
+    name      VARCHAR(50) NOT NULL,
+    surname   VARCHAR(50) NOT NULL,
+    age       INT         NOT NULL,
+    country   VARCHAR(50) NOT NULL,
+    id_team   INT         NOT NULL,
 
     FOREIGN KEY (id_team) REFERENCES teams (id_team) ON DELETE CASCADE
 );
